@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+//import "./App.css";
+import { useSelector, useDispatch } from 'react-redux';
+import {  incNumber, decNumber} from './action/action';
+import styledComponents from 'styled-components';
+      
 
-function App() {
+const App = () => {
+  const myState = useSelector((state) => state.changeTheNumber);
+  const dispatch = useDispatch();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <>
+    <MainDiv>
+      <h1>Increement and decreement </h1>
+      <h2>Power of React-Redux</h2>
+      <div className='Seconddiv'>
+        <a className='sub' title='Decreement'
+        onClick={ () => dispatch(decNumber())}><span>–</span></a>
+        <input className='input' name='quantity' type='text' value={myState}/>
+        <a className='add' title='Increement'
+         onClick={ () => dispatch(incNumber())}><span>+</span></a>
+      </div>
+    </MainDiv>
+  </>
+  )
 }
 
 export default App;
+
+
+ const MainDiv = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 140px;
+
+`
+
+
