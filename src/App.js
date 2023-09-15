@@ -1,40 +1,30 @@
-import React from 'react';
-//import "./App.css";
-import { useSelector, useDispatch } from 'react-redux';
-import {  incNumber, decNumber} from './action/action';
-import styledComponents from 'styled-components';
-      
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import PageNotFound from "./component/PageNotFound";
+import SearchBox from "./component/SearchBox";
+import Layout from "./component/Layout";
+import './App.css'
 
 const App = () => {
-  const myState = useSelector((state) => state.changeTheNumber);
-  const dispatch = useDispatch();
   return (
-   <>
-    <MainDiv>
-      <h1>Increement and decreement </h1>
-      <h2>Power of React-Redux</h2>
-      <div className='Seconddiv'>
-        <a className='sub' title='Decreement'
-        onClick={ () => dispatch(decNumber())}><span>–</span></a>
-        <input className='input' name='quantity' type='text' value={myState}/>
-        <a className='add' title='Increement'
-         onClick={ () => dispatch(incNumber())}><span>+</span></a>
-      </div>
-    </MainDiv>
-  </>
-  )
-}
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <SearchBox />
+              <Home />
+            </Layout>
+          }
+        />
+        <Route path="/productdetail/:id" element={<ProductDetails />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </>
+  );
+};
 
 export default App;
-
-
- const MainDiv = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 140px;
-
-`
-
-

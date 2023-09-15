@@ -2,44 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(159, 226, 226);
+ 
 }
 
 
-h1 {
-  font-size: 42px;
-  font-weight: 700;
-  color: red;
-
-
-}
-.Seconddiv {
-  margin: 64px;
-  height: 86px;
-  
-  display: flex;
-  justify-content: center;
-  
-  color: red;
-  border: 2px solid black;
-  border-radius: 12px;
-
-
-}
-.sub, .add {
-  font-size: 46px; 
-  font-weight: 800; 
-  cursor: pointer;
-  margin: 12px;
-  
-  
-
-}
-.input {
-  height: 86px;
-  width: 68px;
-  font-size: 46px;
-  
-}
 
 
